@@ -44,6 +44,7 @@ public class Controller {
 	public float hAxis;
 	public float vAxis;
 	
+	float axisMinimum = 0.1f;
 	
 	public class ButtonNames {
 		public string hAxis = "Horizontal";
@@ -52,7 +53,7 @@ public class Controller {
 		public string run = "Run";
 		
 		public ButtonNames (int number){
-			if (number > 0){
+			if (number > 1){
 				hAxis += number.ToString();
 				vAxis += number.ToString();
 				jump += number.ToString();
@@ -79,14 +80,15 @@ public class Controller {
 		
 	}
 	
-	public void GetInputs(){
+	public void UpdateInputs(){
 		doubleTap = false;
 		if (locked) return;
+		
+		//get run button
 		
 //		getRun = Input.GetButton(butts.run) || Input.GetKey(run);
 //		getRunDown = Input.GetButtonDown(butts.run) || Input.GetKeyDown(run);
 //		getRunUp = Input.GetButtonUp(butts.run) || Input.GetKeyUp(run);
-		
 		getRun = Input.GetButton(butts.run);
 		getRunDown = Input.GetButtonDown(butts.run);
 		getRunUp = Input.GetButtonUp(butts.run);
@@ -97,6 +99,7 @@ public class Controller {
 			lastRunDownTime = Time.time;
 			
 		}
+		//get jump button
 		
 //		getJump = Input.GetButton(butts.jump) || Input.GetKey(jump);
 //		getJumpUp = Input.GetButtonUp(butts.jump) || Input.GetKeyUp(jump);
@@ -112,16 +115,17 @@ public class Controller {
 		
 		getJumpLast = getJump;
 		
+		//get H axis
 		hAxis = Input.GetAxis(butts.hAxis);
 		
-		getL = hAxis < -0.3f;
-		getR = hAxis > 0.3f;
+		getL = hAxis < -axisMinimum;
+		getR = hAxis > axisMinimum;
 		
-		getLDown = (hAxisLast < 0.3f && hAxisLast > -0.3f) && getL;
-		getRDown = (hAxisLast < 0.3f && hAxisLast > -0.3f) && getR;
+		getLDown = (hAxisLast < axisMinimum && hAxisLast > -axisMinimum) && getL;
+		getRDown = (hAxisLast < axisMinimum && hAxisLast > -axisMinimum) && getR;
 		
-		getLUp = hAxisLast < -0.3f && !getL;
-		getRUp = hAxisLast > 0.3f && !getR;
+		getLUp = hAxisLast < -axisMinimum && !getL;
+		getRUp = hAxisLast > axisMinimum && !getR;
 		
 		if (getLDown){						//check for doubleTap
 			if (Time.time - getLLastTime < doubleTapTime){
@@ -149,14 +153,14 @@ public class Controller {
 	private void VerticalInputs(){
 		vAxis = Input.GetAxis(butts.vAxis);
 		
-		getD = vAxis < -0.3f;
-		getU = vAxis > 0.3f;
+		getD = vAxis < -axisMinimum;
+		getU = vAxis > axisMinimum;
 		
-		getDDown = (vAxisLast < 0.3f && vAxisLast > -0.3f) && getD;
-		getUDown = (vAxisLast < 0.3f && vAxisLast > -0.3f) && getU;
+		getDDown = (vAxisLast < axisMinimum && vAxisLast > -axisMinimum) && getD;
+		getUDown = (vAxisLast < axisMinimum && vAxisLast > -axisMinimum) && getU;
 		
-		getDUp = vAxisLast < -0.3f && !getD;
-		getUUp = vAxisLast > 0.3f && !getU;
+		getDUp = vAxisLast < -axisMinimum && !getD;
+		getUUp = vAxisLast > axisMinimum && !getU;
 		vAxisLast = vAxis;
 	}
 	
@@ -164,5 +168,11 @@ public class Controller {
 		lastJumpTime = 0;
 		getJumpDown = false;
 	}
-	
+	public static void DropSphere (Vector3 position, Color colour) {
+		GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		sphere.transform.position = position;
+		sphere.GetComponent<MeshRenderer>().material.color = colour;
+		sphere.transform.localScale = Vector3.one * 0.1f;
+		GameObject.Destroy(sphere, 25f);
+	}
 }

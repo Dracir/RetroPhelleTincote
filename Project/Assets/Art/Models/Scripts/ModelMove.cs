@@ -7,6 +7,7 @@ public class ModelMove : StateLayer {
 	
 	[Min] public float moveThreshold;
 	[Min] public float inputPower = 1;
+	[Min] public int playerNumber = 1;
 	
 	[SerializeField, Disable] float horizontalAxis;
 	public float HorizontalAxis {
@@ -24,6 +25,16 @@ public class ModelMove : StateLayer {
 	public float AbsHorizontalAxis {
 		get {
 			return Mathf.Abs(horizontalAxis);
+		}
+	}
+	
+	private Controller _controller;
+	public Controller controller {
+		get{
+			if (_controller == null){
+				_controller = new Controller(playerNumber);
+			}
+			return _controller;
 		}
 	}
 	
@@ -53,12 +64,14 @@ public class ModelMove : StateLayer {
 			return _rigidbody;
 		}
 	}
+	
 	#endregion
 
 	public override void OnUpdate() {
 		base.OnUpdate();
+		controller.UpdateInputs();
 		
-		HorizontalAxis = Input.GetAxis("Horizontal").PowSign(inputPower);
+		HorizontalAxis = controller.hAxis;
 		
 		transform.SetPosition(0, Axis.Z);
 	}
