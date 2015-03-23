@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Rick.TiledMapLoader;
+using Magicolo;
 
 namespace RickTools.MapLoader{
 	[System.Serializable]
@@ -34,6 +35,7 @@ namespace RickTools.MapLoader{
 			GameObject parentGo = new GameObject(name);
 			parent = parentGo.transform;
 		}
+
 		
 		protected override void addExternalTileset(int firstGridId, string source){
 			if(linker == null) Debug.LogError("The linker provided is null");
@@ -54,7 +56,9 @@ namespace RickTools.MapLoader{
 		}
 		
 		protected override void afterMapAttributesLoaded() {
-			
+			MapData data = parent.GetOrAddComponent<MapData>();
+			data.width = mapWidth;
+			data.height = mapHeight;
 		}
 		
 		protected override void addObject(string objectGroupName, int x, int y, Dictionary<string, string> properties) {
