@@ -12,6 +12,8 @@ public class Player : Movable {
 	// Update is called once per frame
 	protected override void Update () {
 		base.Update();
+		CheckGrounded();
+		
 		controller.GetInputs();
 		
 		int hInput = 0;
@@ -20,10 +22,10 @@ public class Player : Movable {
 		if (controller.getL)
 			hInput --;
 		
-		Vel = Walk(hInput);
+		Walk(hInput);
 		
 		if (controller.getJumpDown && grounded){
-			Vel = Jump();
+			Jump();
 		}
 	}
 }
