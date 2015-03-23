@@ -146,7 +146,6 @@ namespace RickEditor.Editor{
 			Rect rect = EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(" ");
 			EditorGUILayout.EndHorizontal();
-			EditorGUILayout.LabelField("a");
 			rect = EditorGUI.PrefixLabel(rect, new GUIContent(prefixLabel), prefixLabelStyle);
 			//rect = EditorGUI.PrefixLabel(rect, new GUIContent(":"), prefixLabelStyle);
 			return rect;

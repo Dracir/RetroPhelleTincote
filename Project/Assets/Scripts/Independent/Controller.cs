@@ -68,18 +68,10 @@ public class Controller {
 	private float getRLastTime = 0f;
 	private float doubleTapTime = 0.188f;
 	
-	private static KeyCode jump;
-	private static KeyCode run;
+//	private static KeyCode jump = KeyCode;
+//	private static KeyCode run;
 	
 	public Controller(int playerNo){
-		try{
-			jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Button0", "Z"));
-			run = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Button1", "X"));
-		}catch(System.Exception){
-			jump = KeyCode.Z;
-			run = KeyCode.X;
-		}
-
 		butts = new ButtonNames(playerNo);
 	}
 	
@@ -91,9 +83,13 @@ public class Controller {
 		doubleTap = false;
 		if (locked) return;
 		
-		getRun = Input.GetButton(butts.run) || Input.GetKey(run);
-		getRunDown = Input.GetButtonDown(butts.run) || Input.GetKeyDown(run);
-		getRunUp = Input.GetButtonUp(butts.run) || Input.GetKeyUp(run);
+//		getRun = Input.GetButton(butts.run) || Input.GetKey(run);
+//		getRunDown = Input.GetButtonDown(butts.run) || Input.GetKeyDown(run);
+//		getRunUp = Input.GetButtonUp(butts.run) || Input.GetKeyUp(run);
+		
+		getRun = Input.GetButton(butts.run);
+		getRunDown = Input.GetButtonDown(butts.run);
+		getRunUp = Input.GetButtonUp(butts.run);
 		
 		if (getRunDown){
 			isSpammingRun = Time.time - lastRunDownTime < spamResetTimer;
@@ -102,8 +98,11 @@ public class Controller {
 			
 		}
 		
-		getJump = Input.GetButton(butts.jump) || Input.GetKey(jump);
-		getJumpUp = Input.GetButtonUp(butts.jump) || Input.GetKeyUp(jump);
+//		getJump = Input.GetButton(butts.jump) || Input.GetKey(jump);
+//		getJumpUp = Input.GetButtonUp(butts.jump) || Input.GetKeyUp(jump);
+		
+		getJump = Input.GetButton(butts.jump);
+		getJumpUp = Input.GetButtonUp(butts.jump);
 		
 		if (getJump && !getJumpLast){
 			lastJumpTime = Time.time;
