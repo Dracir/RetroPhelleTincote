@@ -9,9 +9,9 @@ public class IngredientCloudIdle : State {
     	get { return ((IngredientCloud)layer); }
     }
 	
-	public override void CollisionEnter2D(Collision2D collision) {
+	public override void TriggerEnter2D(Collider2D collision) {
 		if(collision.gameObject.tag == "Player"){
-			Rigidbody2D body = collision.gameObject.GetComponent<Rigidbody2D>();
+			Rigidbody2D body = collision.gameObject.GetComponentInParent<Rigidbody2D>();
 			body.velocity *= Layer.velocityMultiplication;
 			SwitchState<IngredientCloudPopOut>();
 		}
