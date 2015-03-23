@@ -28,10 +28,6 @@ namespace Rick.TiledMapLoader{
 			return -1;
 		}
 		
-		protected void debugLog(string log){
-			UnityEngine.Debug.Log(log);
-		}
-		
 		
 		protected void outputError(string message){
 			UnityEngine.Debug.LogError(message);
