@@ -21,7 +21,7 @@ namespace RickTools.MapLoader{
 		
 		public GameObject loadFromFile(FileInfo file){
 			statistics = new MapLoaderStatistics();
-			string name = file.Name.Split(new char[]{'.'})[0];
+			string name = file.Name.Split(new []{'.'})[0];
 			createParent(name);
 			tiles.Clear();
 			
@@ -37,9 +37,13 @@ namespace RickTools.MapLoader{
 		
 		protected override void addExternalTileset(int firstGridId, string source){
 			if(linker == null) Debug.LogError("The linker provided is null");
-			var tileset = linker.getTileset(source);
+			
+			string[] splited = source.Split(new []{'/'});
+			string tilesetName = splited[splited.Length-1];
+			
+			var tileset = linker.getTileset(tilesetName);
 			if(tileset == null){
-				Debug.LogError("The tileset \"" + source + "\" is unknown to the linker.");
+				Debug.LogError("The tileset \"" + tilesetName + "\" is unknown to the linker.");
 			}else{
 				tiles.AddRange(tileset.tiles);
 			}
@@ -64,12 +68,12 @@ namespace RickTools.MapLoader{
 		protected override void addTile(int x, int y, int id) {
 			TiledTileData tileData = tiles[id-1];
 			
-			if(tileData == null || tileData.id == 0){
-				debugLog("yo c null ton tileData ou le ID");
+			if(tileData == null ){
+				Debug.Log("Tile " + id +" is nulll !?!?");
 			}else if(tileData.prefab == null){
 				statistics.addWarning("Tile " + tileData.id + " missing, used times");
 			}else{
-				//debugLog("fake on rajoute " + tileData.prefab.name + " (" + (id-1) + ")");
+				//Debug.Log("fake on rajoute " + tileData.prefab.name + " (" + (id-1) + ")");
 				
 				Vector3 position = new Vector3(x,y);
 				GameObject original = tileData.prefab;
