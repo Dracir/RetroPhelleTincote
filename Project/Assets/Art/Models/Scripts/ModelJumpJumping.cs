@@ -16,6 +16,7 @@ public class ModelJumpJumping : State {
 	
 	float JumpHeight {
 		get{
+			float extraHeightT = 1f - Mathf.Cos((Mathf.Abs(Layer.rigidbody.velocity.x) / moving.speed) * Mathf.PI * 0.5f);
 			return jumpHeight + Mathf.Lerp(0, runningStartBonus, Mathf.Abs(Layer.rigidbody.velocity.x) / moving.speed);
 		}
 	}
@@ -40,7 +41,6 @@ public class ModelJumpJumping : State {
 	
 	public override void OnUpdate() {
 		base.OnUpdate();
-		
 		if (Layer.VerticalVelocity < 0) {
 			SwitchState("Falling");
 			Controller.DropSphere(transform.position, Color.magenta);

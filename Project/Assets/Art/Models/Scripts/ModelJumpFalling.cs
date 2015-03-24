@@ -22,6 +22,16 @@ public class ModelJumpFalling : State {
 	public override void OnUpdate() {
 		base.OnUpdate();
 		
+		if (Layer.controller.getJumpDown){
+			RaycastHit2D[] rayInfo = Layer.RayCheck(Vector3.down, Mathf.Abs(Layer.raySettings.distance), 1.5f, transform.position, Layer.otherPLayer, 3);
+			
+			foreach (RaycastHit2D ray in rayInfo) {
+				if (ray.point != Vector2.zero){
+					SwitchState("Jumping");
+				}
+			}
+		}
+		
 		if (Layer.Grounded) {
 			SwitchState("Idle");
 			if (Layer.machine.Debug){
