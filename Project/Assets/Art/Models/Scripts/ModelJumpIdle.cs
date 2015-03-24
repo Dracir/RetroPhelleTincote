@@ -22,8 +22,11 @@ public class ModelJumpIdle : State {
 	public override void OnUpdate() {
 		base.OnUpdate();
 		
-		if (Input.GetKeyDown(Layer.jumpKey1) || Input.GetKeyDown(Layer.jumpKey2)) {
+		if (Layer.controller.getJumpDown) {
 			SwitchState("Jumping");
+			if (Layer.machine.Debug){
+				Controller.DropSphere(transform.position, Color.yellow);
+			}
 			return;
 		}
 		

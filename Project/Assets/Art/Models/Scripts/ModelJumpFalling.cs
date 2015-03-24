@@ -24,6 +24,9 @@ public class ModelJumpFalling : State {
 		
 		if (Layer.Grounded) {
 			SwitchState("Idle");
+			if (Layer.machine.Debug){
+				Controller.DropSphere(transform.position, Color.green);
+			}
 			return;
 		}
 	}

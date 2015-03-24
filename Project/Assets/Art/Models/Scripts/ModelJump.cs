@@ -9,6 +9,14 @@ public class ModelJump : StateLayer {
 	public KeyCode jumpKey2 = KeyCode.JoystickButton0;
 	public RaySettings raySettings;
 	
+	[HideInInspector]
+	public ModelMove mover;
+	public Controller controller {
+		get{
+			return mover.controller;
+		}
+	}
+	
 	[SerializeField, Disable] bool grounded;
 	public bool Grounded {
 		get {
@@ -63,9 +71,15 @@ public class ModelJump : StateLayer {
 	}
 	#endregion
 	
+	public override void OnAwake () {
+		base.OnAwake();
+		mover = GetComponent<ModelMove>();
+		
+	}
+	
 	public override void OnUpdate() {
 		base.OnUpdate();
-		
+		controller.UpdateInputs();
 		Grounded = CastRays();
 		VerticalVelocity = rigidbody.velocity.y;
 	}

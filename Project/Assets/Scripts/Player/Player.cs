@@ -14,7 +14,7 @@ public class Player : Movable {
 		base.Update();
 		CheckGrounded();
 		
-		controller.GetInputs();
+		controller.UpdateInputs();
 		
 		int hInput = 0;
 		if (controller.getR)
