@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Vector2 averagePos = VectorFunctions.Midpoint(toFollow);
 
 		//take the average pos and lerp towards it; add the offset afterward

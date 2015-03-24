@@ -5,6 +5,7 @@ using Magicolo;
 
 public class ModelJump : StateLayer {
 	
+	public LayerMask otherPLayer;
 	public KeyCode jumpKey1 = KeyCode.UpArrow;
 	public KeyCode jumpKey2 = KeyCode.JoystickButton0;
 	public RaySettings raySettings;
@@ -79,7 +80,7 @@ public class ModelJump : StateLayer {
 	
 	public override void OnUpdate() {
 		base.OnUpdate();
-		controller.UpdateInputs();
+		
 		Grounded = CastRays();
 		VerticalVelocity = rigidbody.velocity.y;
 	}
@@ -99,6 +100,23 @@ public class ModelJump : StateLayer {
 		}
 		
 		return hit;
+	}
+	public RaycastHit2D[] RayCheck (Vector3 direction, float distance, float breadth, Vector3 origin, int layermask, int number){
+		
+		RaycastHit2D[] rayHits = new RaycastHit2D[number];
+		Vector3 side1 = origin + new Vector3(direction.y, -direction.x, 0).normalized * breadth / 2;
+		Vector3 side2 = origin + new Vector3(-direction.y, direction.x, 0).normalized * breadth / 2;
+		
+		for (int i = 0; i < number; i ++){
+			Vector3 o = Vector3.Lerp (side1, side2, (float)i / (float) (number - 1));
+
+			rayHits[i] = Physics2D.Raycast(o, direction, distance, layermask);
+			if (machine.Debug){
+				Debug.DrawLine (o, o + (direction * distance));
+			}
+		}
+		
+		return rayHits;
 	}
 	
 	[System.Serializable]

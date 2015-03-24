@@ -117,7 +117,6 @@ public class Controller {
 		
 		//get H axis
 		hAxis = Input.GetAxis(butts.hAxis);
-		
 		getL = hAxis < -axisMinimum;
 		getR = hAxis > axisMinimum;
 		
