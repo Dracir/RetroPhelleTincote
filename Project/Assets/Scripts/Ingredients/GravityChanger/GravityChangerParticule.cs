@@ -39,8 +39,6 @@ public class GravityChangerParticule : Diable {
 		Rigidbody2D body = other.GetComponentInParent<Rigidbody2D>();
 		if(body && body.transform.tag == "Player"){
 			body.AddForce(gravity);
-		}else{
-			Debug.Log("touché a " + other.gameObject.name);
 		}
 		isAlive = false;
 		
