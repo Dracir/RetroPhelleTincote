@@ -70,6 +70,12 @@ namespace RickTools.MapLoader{
 		}
 		
 		protected override void addTile(int x, int y, int id) {
+			int listTileId = id-1;
+			if(listTileId > tiles.Count - 1){
+				Debug.LogError("The tile id " + id + " is too far, last id is " + (tiles.Count) + ".");
+				return;
+			}
+			
 			TiledTileData tileData = tiles[id-1];
 			
 			if(tileData == null ){
