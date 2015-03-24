@@ -35,6 +35,6 @@ public class DiableManager : MonoBehaviour {
 	
 	public void addDiable(Diable diable){
 		diablesToAdd.Add(diable);
-		diable.transform.parent = this.transform;
+		diable.transform.parent = transform;
 	}
 }
