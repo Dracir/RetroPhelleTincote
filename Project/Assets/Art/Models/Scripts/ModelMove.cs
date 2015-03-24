@@ -12,7 +12,7 @@ public class ModelMove : StateLayer {
 	[SerializeField, Disable] float horizontalAxis;
 	public float HorizontalAxis {
 		get {
-			return horizontalAxis;
+			return controller.hAxis;
 		}
 		set {
 			if (horizontalAxis != value) {
@@ -24,7 +24,7 @@ public class ModelMove : StateLayer {
 	
 	public float AbsHorizontalAxis {
 		get {
-			return Mathf.Abs(horizontalAxis);
+			return Mathf.Abs(HorizontalAxis);
 		}
 	}
 	
@@ -47,7 +47,7 @@ public class ModelMove : StateLayer {
 	#region Cached Components
 	bool _animatorCached;
 	Animator _animator;
-	public Animator animator { 
+	public Animator animator {
 		get { 
 			_animator = _animatorCached ? _animator : GetComponent<Animator>();
 			_animatorCached = true;
