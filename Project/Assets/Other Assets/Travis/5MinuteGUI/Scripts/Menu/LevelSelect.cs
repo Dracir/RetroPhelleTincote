@@ -115,6 +115,7 @@ namespace FMG
 						newObject.transform.parent = newPage.transform;
 
 						Button button = newObject.GetComponent<Button>();
+						
 						if(useLockedButtons && n > Constants.getMaxLevel())
 						{
 							button.interactable=false;
