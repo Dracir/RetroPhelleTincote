@@ -77,7 +77,7 @@ public class GameManager : StateLayer {
 		centerCamera();
 	}
 
-	void relocatePlayersToStart() {
+	public void relocatePlayersToStart() {
 		GameObject p1Start = levelGO.FindChild("Player1Start");
 		if(p1Start && player1){
 			player1.transform.position = p1Start.transform.position;
@@ -86,6 +86,22 @@ public class GameManager : StateLayer {
 		GameObject p2Start = levelGO.FindChild("Player2Start");
 		if(p2Start && player2){
 			player2.transform.position = p2Start.transform.position;
+		}
+	}
+	
+	public void relocatePlayerToStart (GameObject player){
+		int number = 0;
+		if (player == player1){
+			number = 1;
+		} else if (player == player2){
+			number = 2;
+		} else {
+			Debug.Log("Trying to respawn something that isn't a player :S ");
+			return;
+		}
+		GameObject startObj = levelGO.FindChild("Player" + number.ToString() + "Start");
+		if (player && startObj){
+			player.transform.position = startObj.transform.position;
 		}
 	}
 
