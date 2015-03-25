@@ -13,7 +13,6 @@ public class BaseImage : MonoBehaviour {
 	public void Awake()
 	{
 		m_image = gameObject.GetComponent<Image>();
-
 	}
 	public virtual float play()
 	{

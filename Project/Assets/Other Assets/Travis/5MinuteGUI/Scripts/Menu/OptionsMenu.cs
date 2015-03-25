@@ -22,6 +22,9 @@ namespace FMG
 
 		void updateAudioText()
 		{
+			if (!audioText){
+				return;
+			}
 			float currentVol = Constants.getAudioVolume();
 			if(currentVol==0)
 			{
