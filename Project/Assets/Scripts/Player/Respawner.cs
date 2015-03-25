@@ -12,17 +12,12 @@ public class Respawner : MonoBehaviour {
 	}
 	
 	void Respawn () {
-		int i = Random.Range(0, 2);
-		if (startPos[0] == null){
-			startPos = FindObjectsOfType<PlayerStart>() as PlayerStart[];
-		}
-		transform.position = startPos[i].transform.position;
+		GameManager.instance.relocatePlayerToStart(gameObject);
 	}
 	void OnTriggerEnter2D (Collider2D other){
 		ThrillFloor floor = other.GetComponent<ThrillFloor>();
 		if (floor != null){
 			Respawn();
-			Debug.Log("Respawning");
 		}
 	}
 }
