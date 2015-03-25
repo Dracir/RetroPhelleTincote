@@ -11,4 +11,3 @@ public class RotateForever : MonoBehaviourExtended {
 		transform.Rotate(speed, Axis.Z);
 	}
 }
-
