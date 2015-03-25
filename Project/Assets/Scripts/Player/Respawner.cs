@@ -13,7 +13,7 @@ public class Respawner : MonoBehaviour {
 	
 	void Respawn () {
 		int i = Random.Range(0, 2);
-		if (startPos[0].gameObject == null){
+		if (startPos[0] == null){
 			startPos = FindObjectsOfType<PlayerStart>() as PlayerStart[];
 		}
 		transform.position = startPos[i].transform.position;
