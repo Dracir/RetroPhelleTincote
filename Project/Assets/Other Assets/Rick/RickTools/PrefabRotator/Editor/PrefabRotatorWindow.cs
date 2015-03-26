@@ -10,7 +10,7 @@ namespace RickTools{
 	[System.Serializable]
 	public class PrefabRotatorWindow : CustomWindowBase {
 	
-		string prefabFilePath;
+		string prefabFilePath = "Assets";
 			
 		[MenuItem("Rick's Tools/Map Loader/Prefab Rotator")]
 		public static void Create() {

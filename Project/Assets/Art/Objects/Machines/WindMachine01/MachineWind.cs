@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Magicolo;
+using Magicolo.GeneralTools;
 
 public class MachineWind : StateLayer {
 	
@@ -17,6 +18,7 @@ public class MachineWind : StateLayer {
 		}
 	}
 	
+	public SmoothOscillate smoothOscillate;
 	public ParticleSystem particleFX;
 	
 	bool _areaEffectorCached;
@@ -32,7 +34,7 @@ public class MachineWind : StateLayer {
 	public override void OnAwake() {
 		base.OnAwake();
 		
-		LayerMask layerMask = new LayerMask().AddToMask("Walls").Inverse();
+		smoothOscillate = GetComponentInChildren<SmoothOscillate>();
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 100, layerMask);
 		
 		if (hit.collider != null) {
