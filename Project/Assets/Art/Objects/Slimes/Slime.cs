@@ -5,11 +5,10 @@ using Magicolo;
 
 public class Slime : StateLayer {
 	
+	public Vector2 gravity;
 	[Min] public float maxSpeed = 5;
 	[Min] public float lifeTime = 30;
 	[Min] public float scaleSpeed = 3;
-	
-	[Disable] public Vector2 gravity;
 	
 	bool _rigidbodyCached;
 	Rigidbody2D _rigidbody;

@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Magicolo;
 
-namespace Magicolo.GeneralTools {
+namespace Magicolo {
 	[AddComponentMenu("Magicolo/Smooth/Oscillate")]
 	public class SmoothOscillate : MonoBehaviourExtended {
 

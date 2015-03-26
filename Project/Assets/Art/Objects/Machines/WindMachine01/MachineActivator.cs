@@ -5,6 +5,7 @@ public class MachineActivator : MonoBehaviour {
 
 	MachineWind machinWind;
 	float cooldown;
+	public float cooldownTime = 1f;
 	
 	void Start () {
 		machinWind = transform.parent.gameObject.GetComponent<MachineWind>();
@@ -25,6 +26,7 @@ public class MachineActivator : MonoBehaviour {
 			}else{
 				machinWind.SwitchState<MachineWindIdle>();
 			}
+			cooldown = cooldownTime;
 		}
     }
 }

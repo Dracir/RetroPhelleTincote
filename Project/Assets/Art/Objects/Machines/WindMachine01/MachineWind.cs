@@ -21,7 +21,7 @@ public class MachineWind : StateLayer {
 	
 	bool _areaEffectorCached;
 	AreaEffector2D _areaEffector;
-	new public AreaEffector2D areaEffector { 
+	public AreaEffector2D areaEffector { 
 		get { 
 			_areaEffector = _areaEffectorCached ? _areaEffector : GetComponent<AreaEffector2D>();
 			_areaEffectorCached = true;

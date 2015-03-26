@@ -27,7 +27,7 @@ public class SlimeDespawning : State {
 		
 		transform.ScaleLocalTowards(Vector3.zero, Layer.scaleSpeed);
 		
-		if (transform.localScale.magnitude < 0.1F) {
+		if (transform.localScale.magnitude <= 0.1F) {
 			SwitchState<SlimeIdle>();
 			return;
 		}

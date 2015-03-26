@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Magicolo;
 
-public class GloudIdle : State {
+public class VineIdle : State {
 	
-    Gloud Layer {
-    	get { return ((Gloud)layer); }
+    Vine Layer {
+    	get { return ((Vine)layer); }
     }
 	
 	public override void OnEnter() {
