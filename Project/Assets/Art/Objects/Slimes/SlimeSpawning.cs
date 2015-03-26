@@ -29,7 +29,7 @@ public class SlimeSpawning : State {
 		
 		transform.ScaleLocalTowards(scale, Layer.scaleSpeed);
 		
-		if (Vector3.Distance(transform.localScale, scale) < 0.1F) {
+		if (Vector3.Distance(transform.localScale, scale) <= 0.1F) {
 			SwitchState<SlimeMoving>();
 			return;
 		}
