@@ -5,9 +5,10 @@ namespace Magicolo {
 	public static class RendererExtensions {
 
 		public static Color GetColor(this Renderer renderer, bool shared) {
+			SpriteRenderer spriteRenderer = renderer as SpriteRenderer;
 			Color color;
 			
-			if (renderer as SpriteRenderer != null) {
+			if (spriteRenderer != null && spriteRenderer.sharedMaterial == null) {
 				color = ((SpriteRenderer)renderer).color;
 			}
 			else if (shared) {
@@ -25,8 +26,10 @@ namespace Magicolo {
 		}
 		
 		public static void SetColor(this Renderer renderer, Color color, bool shared, Channels channels = Channels.RGBA) {
-			if (renderer as SpriteRenderer != null) {
-				((SpriteRenderer)renderer).SetColor(color, channels);
+			SpriteRenderer spriteRenderer = renderer as SpriteRenderer;
+			
+			if (spriteRenderer != null && spriteRenderer.sharedMaterial == null) {
+				spriteRenderer.color = spriteRenderer.color.SetValues(color, channels);
 			}
 			else if (shared) {
 				renderer.sharedMaterial.SetColor(color, channels);
