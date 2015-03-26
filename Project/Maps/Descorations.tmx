@@ -5,7 +5,7 @@
   <property name="NoOverlappingRules" value="True"/>
  </properties>
  <tileset firstgid="1" source="Tiles.tsx"/>
- <tileset firstgid="51" source="Ingredients.tsx"/>
+ <tileset firstgid="51" source="Decorations.tsx"/>
  <layer name="regions" width="9" height="3">
   <data encoding="base64" compression="zlib">
    eJxjYCAOMBKgiQEAAUwABQ==
@@ -63,7 +63,7 @@
  </layer>
  <layer name="output10_Decorations" width="9" height="3">
   <data encoding="base64" compression="zlib">
-   eJxjYCAO+ENpVygdAKXdiNQPAgBB3AEr
+   eJxjYCAOWENpYyhtA6VNiNQPAgAxLADf
   </data>
  </layer>
 </map>
