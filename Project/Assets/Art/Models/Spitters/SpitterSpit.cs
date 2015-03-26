@@ -47,7 +47,6 @@ public class SpitterSpit : State {
 			Slime slime = spit.GetComponent<Slime>();
 		
 			slime.rigidbody.SetVelocity(Layer.velocity * Layer.transform.up);
-			slime.gravity = Layer.gravity;
 		}
 	}
 }
