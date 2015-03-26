@@ -113,7 +113,6 @@ public class Controller {
 		}
 		
 		getJumpDown = Time.time - lastJumpTime < jumpInputLeeway;
-		Logger.Log(Time.time - lastJumpTime , lastJumpTime);
 		
 		getJumpLast = getJump;
 		
