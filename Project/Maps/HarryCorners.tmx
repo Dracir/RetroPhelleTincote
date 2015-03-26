@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="17" height="17" tilewidth="64" tileheight="64" nextobjectid="1">
+ <properties>
+  <property name="AutomappingRadius" value="3"/>
+  <property name="NoOverlappingRules" value="True"/>
+ </properties>
+ <tileset firstgid="1" source="Tiles.tsx"/>
+ <layer name="regions" width="17" height="17">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAeYCSCjy6GTZ6RSD4hc3DZSUg/tQA+dxDiI4sRGx64wodSPrUApfaQmx5wmYPOpjeg1B3UDA98fFoDAKzcAEM=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAeYCTAJ0Y/LxQzILEZkeSJAdjMoMRd5AJ87mACYhY0tch8ECAUHuh8MTQ+sjmU8KkF0OMBnU+MfmzhQY45yGmKVP3UAoTcgczHJY8vPIgNL0r5lAIAfR8Cvg==
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAdYKRQPxMQ8yKZQ455vFCMDCh1F7EA5n50NgMDprtA8ixo+hnR1MHYMPeLEeAjm0MJf7gBCTS+2IC4AjO+mQbEFQMPACIJASI=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAf4AViFgr0M0LN4KXQHYwU6icWMDEg/IvudyYGwv5A9y+MDXO/GBofnzmk8Ac7kIDSYgPqisEDYOmKaUBdQT4AAIcuAOU=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoAoGBdgCFAN39/APiioEHAEAMADA=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoAoGBdgCFgNruZ6OyefQCADXUACc=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoA4GBdsAgA6SGx0CHHwAzhAAx
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjGTAj8YXoLP9ABMEACA=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDEXAj0Ocja6uoBwAABRcABY=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAIE4KezfQALFAAQ
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BkAT40Ps+AuGLwuGOgAQBGdAA1
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="17" height="17">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoAXE0eqQDZjR6qAEAW5QANQ==
+  </data>
+ </layer>
+ <layer name="output_Tiles" width="17" height="17">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhcgAmNz4LGF6OXQwYJQPevBIn84QYE0Pj8A+KKwQPY0PisA+IKygAAttMApQ==
+  </data>
+ </layer>
+</map>

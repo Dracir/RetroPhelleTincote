@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="9" height="3" tilewidth="64" tileheight="64" nextobjectid="1">
+ <properties>
+  <property name="AutomappingRadius" value="3"/>
+  <property name="NoOverlappingRules" value="True"/>
+ </properties>
+ <tileset firstgid="1" source="Tiles.tsx"/>
+ <tileset firstgid="51" source="Decorations.tsx"/>
+ <layer name="regions" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOMBKgiQEAAUwABQ==
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAO8EBpZigtDqX5iNQPAgALZAA1
+  </data>
+ </layer>
+ <layer name="output1_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output2_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output3_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output4_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output5_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output6_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output7_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output8_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output9_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output11_Decorations" width="9" height="3" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
+ </layer>
+ <layer name="output10_Decorations" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOOEJpcyjtBKUtiNQPAgA1nADz
+  </data>
+ </layer>
+</map>

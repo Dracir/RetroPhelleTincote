@@ -13,6 +13,7 @@ namespace RickEditor.Editor{
 		
 		public static string rootFolder = Application.dataPath.Substring(0, Application.dataPath.Length - 6);
 		public static string assetFolder = Application.dataPath;
+		public static string resourcesFolder = Application.dataPath + "/Resources";
 		
 		static GUIStyle makePathButtonStyle() {
 			GUIStyle buttonStyle = new GUIStyle("TL SelectionButton");
