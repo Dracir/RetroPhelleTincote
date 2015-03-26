@@ -23,6 +23,7 @@ public class ModelJumpIdle : State {
 		base.OnUpdate();
 		
 		if (Layer.controller.getJumpDown) {
+			Debug.Log("JUMP");
 			SwitchState("Jumping");
 			if (Layer.machine.Debug){
 				Controller.DropSphere(transform.position, Color.yellow);
