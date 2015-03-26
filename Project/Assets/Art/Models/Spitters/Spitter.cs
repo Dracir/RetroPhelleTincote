@@ -5,8 +5,7 @@ using Magicolo;
 
 public class Spitter : StateLayer {
 	
-	[Min] public float reloadTime = 0.1F;
-	public float initialVelocity = 15;
+	public float velocity = 15;
 	public Vector2 gravity = new Vector2(0, 5);
 	public GameObject spitPrefab;
 	

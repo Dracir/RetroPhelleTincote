@@ -5,6 +5,8 @@ using Magicolo;
 
 public class SpitterReload : State {
 	
+	[Min] public float reloadTime = 0.1F;
+	
 	[Disable] public float counter;
 	
 	Spitter Layer {
@@ -14,7 +16,7 @@ public class SpitterReload : State {
 	public override void OnEnter() {
 		base.OnEnter();
 		
-		counter = Layer.reloadTime;
+		counter = reloadTime;
 	}
 	
 	public override void OnExit() {

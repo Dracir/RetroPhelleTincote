@@ -44,11 +44,10 @@ public class SpitterSpit : State {
 		for (int i = 0; i < amount; i++) {
 			Vector3 position = Layer.transform.position + (offset + new Vector3(Random.Range(-randomness.x, randomness.x), Random.Range(-randomness.y, randomness.y), Random.Range(-randomness.z, randomness.z))).Rotate(-Layer.transform.eulerAngles.z);
 			GameObject spit = Object.Instantiate(Layer.spitPrefab, position, Random.rotation) as GameObject;
-			GravityChangerParticule gravityChanger = spit.GetComponent<GravityChangerParticule>();
+			Slime slime = spit.GetComponent<Slime>();
 		
-			spit.GetComponent<Rigidbody2D>().SetVelocity(Layer.initialVelocity * Layer.transform.up);
-			gravityChanger.gravity = Layer.gravity;
-			DiableManager.instance.addDiable(gravityChanger);
+			slime.rigidbody.SetVelocity(Layer.velocity * Layer.transform.up);
+			slime.gravity = Layer.gravity;
 		}
 	}
 }

@@ -12,13 +12,13 @@ namespace Magicolo.GraphicsTools {
 		public string pathFilter;
 		public string searchFilter = "";
 		
-		[SerializeField] Material[] materials;
-		List<Material> backgroundMaterials;
-		List<Material> geometryMaterials;
-		List<Material> transparentMaterials;
-		List<Material> overlayMaterials;
-		Dictionary<Material, string> materialGroups;
-		Dictionary<Material, int> materialIndices;
+		[SerializeField] Material[] materials = new Material[0];
+		List<Material> backgroundMaterials = new List<Material>();
+		List<Material> geometryMaterials = new List<Material>();
+		List<Material> transparentMaterials = new List<Material>();
+		List<Material> overlayMaterials = new List<Material>();
+		Dictionary<Material, string> materialGroups = new Dictionary<Material, string>();
+		Dictionary<Material, int> materialIndices = new Dictionary<Material, int>();
 		
 		Vector2 scrollView;
 		bool changed = true;
