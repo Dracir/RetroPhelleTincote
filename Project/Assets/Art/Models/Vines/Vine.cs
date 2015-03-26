@@ -7,7 +7,7 @@ public class Vine : StateLayer {
 	
 	bool _skinnedRendererCached;
 	SkinnedMeshRenderer _skinnedRenderer;
-	new public SkinnedMeshRenderer skinnedRenderer { 
+	public SkinnedMeshRenderer skinnedRenderer { 
 		get { 
 			_skinnedRenderer = _skinnedRendererCached ? _skinnedRenderer : GetComponentInChildren<SkinnedMeshRenderer>();
 			_skinnedRendererCached = true;
