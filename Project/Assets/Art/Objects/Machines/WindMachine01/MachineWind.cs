@@ -32,11 +32,11 @@ public class MachineWind : StateLayer {
 	public override void OnAwake() {
 		base.OnAwake();
 		
-		LayerMask layerMask = new LayerMask().AddToMask("Walls");
+		LayerMask layerMask = new LayerMask().AddToMask("Walls").Inverse();
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 100, layerMask);
 		
-		if (hit) {
-			Logger.Log(hit.point);
+		if (hit.collider != null) {
+			Logger.Log(hit.collider, hit.point);
 		}
 	}
 }
