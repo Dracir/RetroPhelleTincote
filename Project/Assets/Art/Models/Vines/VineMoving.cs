@@ -6,8 +6,10 @@ using Magicolo;
 public class VineMoving : State {
 	
 	public float speed = 1;
+	public float randomness = 0.5F;
 	
 	[Disable] public Vector3 position;
+	[Disable] public float currentSpeed;
 	
 	Vine Layer {
 		get { return ((Vine)layer); }
@@ -27,15 +29,18 @@ public class VineMoving : State {
 		base.OnAwake();
 		
 		position = transform.position;
+		currentSpeed = speed + speed * Random.Range(-randomness, randomness);
 	}
 	
 	public override void OnUpdate() {
 		base.OnUpdate();
 		
-		transform.Translate(transform.right * speed, Axis.XY);
+		transform.Translate(transform.right * currentSpeed, Axis.XY);
 		
 		if (!Layer.skinnedRenderer.isVisible) {
-			transform.position = position;
+			Vector3 up = transform.up * randomness * 10;
+			transform.position = position + new Vector3(Random.Range(-up.x, up.x), Random.Range(-up.y, up.y), Random.Range(-up.z, up.z));
+			currentSpeed = speed + speed * Random.Range(-randomness, randomness);
 		}
 	}
 }
