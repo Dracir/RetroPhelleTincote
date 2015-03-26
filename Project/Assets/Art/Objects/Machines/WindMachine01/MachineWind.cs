@@ -53,7 +53,7 @@ public class MachineWind : StateLayer {
 		base.OnAwake();
 		
 		LayerMask layerMask = new LayerMask().AddToMask("Walls");
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 100, layerMask);
+		RaycastHit2D hit = Physics2D.Raycast(particleFX.transform.position, transform.up, 100, layerMask);
 		
 		if (hit.collider != null) {
 			float distance = Vector2.Distance(particleFX.transform.position, hit.point);
