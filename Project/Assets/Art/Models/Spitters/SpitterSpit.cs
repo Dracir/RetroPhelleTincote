@@ -43,7 +43,7 @@ public class SpitterSpit : State {
 	public void Spit() {
 		for (int i = 0; i < amount; i++) {
 			Vector3 position = Layer.transform.position + (offset + new Vector3(Random.Range(-randomness.x, randomness.x), Random.Range(-randomness.y, randomness.y), Random.Range(-randomness.z, randomness.z))).Rotate(-Layer.transform.eulerAngles.z);
-			GameObject spit = Object.Instantiate(Layer.spitPrefab, position, Random.rotation) as GameObject;
+			GameObject spit = Object.Instantiate(Layer.spitPrefab, position, Quaternion.Euler(0, 0, Random.Range(-180, 180))) as GameObject;
 			Slime slime = spit.GetComponent<Slime>();
 		
 			slime.rigidbody.SetVelocity(Layer.velocity * Layer.transform.up);
