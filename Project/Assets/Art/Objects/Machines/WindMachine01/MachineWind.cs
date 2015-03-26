@@ -19,6 +19,16 @@ public class MachineWind : StateLayer {
 	
 	public ParticleSystem particleFX;
 	
+	bool _boxColliderCached;
+	BoxCollider2D _boxCollider;
+	public BoxCollider2D boxCollider { 
+		get { 
+			_boxCollider = _boxColliderCached ? _boxCollider : GetComponent<BoxCollider2D>();
+			_boxColliderCached = true;
+			return _boxCollider;
+		}
+	}
+	
 	bool _areaEffectorCached;
 	AreaEffector2D _areaEffector;
 	public AreaEffector2D areaEffector { 
@@ -49,6 +59,8 @@ public class MachineWind : StateLayer {
 			float distance = Vector2.Distance(particleFX.transform.position, hit.point);
 			
 			particleFX.startLifetime = distance / 5;
+			boxCollider.size = new Vector2(boxCollider.size.x, distance);
+			boxCollider.offset = new Vector2(0, distance / 2 + 0.75F);
 		}
 	}
 }
