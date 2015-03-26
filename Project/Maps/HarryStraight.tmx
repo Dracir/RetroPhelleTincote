@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="9" height="5" tilewidth="64" tileheight="64" nextobjectid="1">
+ <properties>
+  <property name="AutomappingRadius" value="1"/>
+  <property name="NoOverlappingRules" value="True"/>
+ </properties>
+ <tileset firstgid="1" source="Tiles.tsx"/>
+ <layer name="regions" width="9" height="5">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOMCJhBiw0Lj3oasgxBx0AAAUEAA0=
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAO8EIxI5TPiCSOTw+6GkYks5DlGBmIBwAnhABt
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMMJOpjw9Ki5OhFwAKBAAp
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOsJIoTgiwkakPBAAHHAAR
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAO8OMQZyNSP6nm4gMADqwAJQ==
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgYIIBGkwIAB7QAIQ==
+  </data>
+ </layer>
+ <layer name="input_Tiles" width="9" height="5" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh6AAAAtAAB
+  </data>
+ </layer>
+ <layer name="output_Tiles" width="9" height="5">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAe8JGgFgSYobQ4mjgPieagAwATXAA1
+  </data>
+ </layer>
+</map>
