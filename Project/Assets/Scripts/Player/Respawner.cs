@@ -17,7 +17,7 @@ public class Respawner : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		ThrillFloor floor = other.GetComponent<ThrillFloor>();
 		if (floor != null){
-			Respawn();
+			SendMessage("Respawn");
 		}
 	}
 }
