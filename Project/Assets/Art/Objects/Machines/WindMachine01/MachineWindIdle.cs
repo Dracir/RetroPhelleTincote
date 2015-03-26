@@ -13,7 +13,7 @@ public class MachineWindIdle : State {
 	public override void OnEnter() {
 		base.OnEnter();
 		Layer.particleFX.Stop();
-		Layer.smoothOscillate.enabled = false;
+		Layer.oscillate.enabled = false;
 		Layer.areaEffector.enabled = false;
 	}
 	

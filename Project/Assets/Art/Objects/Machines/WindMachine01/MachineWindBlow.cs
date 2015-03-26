@@ -14,7 +14,7 @@ public class MachineWindBlow : State {
 		
 		UpdateRotation();
 		Layer.particleFX.Play();
-		Layer.smoothOscillate.enabled = true;
+		Layer.oscillate.enabled = true;
 		Layer.areaEffector.enabled = true;
 	}
 	
