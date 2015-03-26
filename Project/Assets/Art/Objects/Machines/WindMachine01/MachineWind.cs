@@ -30,9 +30,16 @@ public class MachineWind : StateLayer {
 			return _areaEffector;
 		}
 	}
-	
-	public override void OnAwake(){
+
+	public override void OnAwake() {
 		base.OnAwake();
+		
 		smoothOscillate = GetComponentInChildren<SmoothOscillate>();
+		LayerMask layerMask = new LayerMask().AddToMask("Walls");
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 100, layerMask);
+		
+		if (hit) {
+			Logger.Log(hit.point);
+		}
 	}
 }

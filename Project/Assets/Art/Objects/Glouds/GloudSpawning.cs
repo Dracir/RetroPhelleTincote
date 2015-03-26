@@ -18,6 +18,7 @@ public class GloudSpawning : State {
 		transform.position = position;
 		transform.localScale = Vector3.zero;
 		Layer.spriteRenderer.SetColor(0, Channels.A);
+		Layer.PlaySound(Layer.reformSound);
 	}
 	
 	public override void OnExit() {
