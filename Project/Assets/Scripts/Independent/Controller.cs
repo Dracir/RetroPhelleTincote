@@ -74,6 +74,7 @@ public class Controller {
 	
 	public Controller(int playerNo){
 		butts = new ButtonNames(playerNo);
+		lastJumpTime= -jumpInputLeeway ;
 	}
 	
 	public Controller() : this(0) {
@@ -112,6 +113,7 @@ public class Controller {
 		}
 		
 		getJumpDown = Time.time - lastJumpTime < jumpInputLeeway;
+		Logger.Log(Time.time - lastJumpTime , lastJumpTime);
 		
 		getJumpLast = getJump;
 		
@@ -167,11 +169,12 @@ public class Controller {
 		lastJumpTime = 0;
 		getJumpDown = false;
 	}
+	
 	public static void DropSphere (Vector3 position, Color colour) {
-		GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		/*GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		sphere.transform.position = position;
 		sphere.GetComponent<MeshRenderer>().material.color = colour;
 		sphere.transform.localScale = Vector3.one * 0.1f;
-		GameObject.Destroy(sphere, 25f);
+		GameObject.Destroy(sphere, 25f);*/
 	}
 }
