@@ -3,13 +3,28 @@ using System.Collections;
 
 public class MachineActivator : MonoBehaviour {
 
-	// Use this for initialization
+	MachineWind machinWind;
+	float cooldown;
+	
 	void Start () {
-	
+		machinWind = transform.parent.gameObject.GetComponent<MachineWind>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update(){
+		if(cooldown > 0){
+			cooldown -= Time.deltaTime;
+			if(cooldown < 0) cooldown = 0;
+		}
 	}
+	
+	void OnTriggerEnter2D(Collider2D other) {
+		if(cooldown > 0) return;
+		if(other.tag == "Player"){
+			if(machinWind.StateIsActive<MachineWindIdle>()){
+				machinWind.SwitchState<MachineWindBlow>();
+			}else{
+				machinWind.SwitchState<MachineWindIdle>();
+			}
+		}
+    }
 }
