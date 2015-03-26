@@ -28,7 +28,7 @@ public class GloudDespawning : State {
 		Layer.spriteRenderer.FadeTowards(0, Layer.animationSpeed, Channels.A);
 		
 		if (Layer.spriteRenderer.GetColor().a <= 0.01F) {
-			SwitchState<GloudSpawning>();
+			SwitchState<GloudCooldown>();
 			return;
 		}
 	}
