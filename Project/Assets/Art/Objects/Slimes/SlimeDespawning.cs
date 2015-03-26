@@ -13,6 +13,8 @@ public class SlimeDespawning : State {
 		base.OnEnter();
 		
 		Layer.rigidbody.SetVelocity(Layer.rigidbody.velocity / 10);
+		
+		Layer.PlaySound(Layer.hitSound[Random.Range(0, Layer.hitSound.Length)]);
 	}
 	
 	public override void OnExit() {

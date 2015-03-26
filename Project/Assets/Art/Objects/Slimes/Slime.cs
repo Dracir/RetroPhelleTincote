@@ -9,6 +9,7 @@ public class Slime : StateLayer {
 	[Min] public float maxSpeed = 5;
 	[Min] public float lifeTime = 30;
 	[Min] public float scaleSpeed = 3;
+	public AudioClip[] hitSound;
 	
 	bool _rigidbodyCached;
 	Rigidbody2D _rigidbody;
@@ -17,6 +18,16 @@ public class Slime : StateLayer {
 			_rigidbody = _rigidbodyCached ? _rigidbody : GetComponent<Rigidbody2D>();
 			_rigidbodyCached = true;
 			return _rigidbody;
+		}
+	}
+	
+	AudioSource _source;
+	public AudioSource source {
+		get{
+			if (_source == null){
+				_source = gameObject.AddComponent<AudioSource>();
+			}
+			return _source;
 		}
 	}
 	
@@ -37,5 +48,8 @@ public class Slime : StateLayer {
 		}
 		
 		return true;
+	}
+	public void PlaySound (AudioClip clip){
+		source.PlayOneShot(clip, 1f);
 	}
 }

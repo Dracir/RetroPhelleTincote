@@ -11,7 +11,7 @@ public class GloudDespawning : State {
 	
 	public override void OnEnter() {
 		base.OnEnter();
-		
+		Layer.PlaySound(Layer.burstSound);
 	}
 	
 	public override void OnExit() {
