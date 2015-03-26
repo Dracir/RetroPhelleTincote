@@ -4,7 +4,7 @@ using System.Collections;
 public class MachineActivator : MonoBehaviour {
 
 	MachineWind machinWind;
-	float cooldown;
+	[Disable] float cooldown;
 	public float cooldownTime = 1f;
 	
 	void Start () {

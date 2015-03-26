@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Magicolo;
+using Magicolo.GeneralTools;
 
 public class MachineWind : StateLayer {
 	
@@ -17,6 +18,7 @@ public class MachineWind : StateLayer {
 		}
 	}
 	
+	public SmoothOscillate smoothOscillate;
 	public ParticleSystem particleFX;
 	
 	bool _areaEffectorCached;
@@ -27,5 +29,10 @@ public class MachineWind : StateLayer {
 			_areaEffectorCached = true;
 			return _areaEffector;
 		}
+	}
+	
+	public override void OnAwake(){
+		base.OnAwake();
+		smoothOscillate = GetComponentInChildren<SmoothOscillate>();
 	}
 }
