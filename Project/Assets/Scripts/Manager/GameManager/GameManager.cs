@@ -98,7 +98,7 @@ public class GameManager : StateLayer {
 		centerCamera();
 		
 		if(background != null){
-			background.transform.position = new Vector3(mapData.width / 2 - 0.5f, mapData.height/2 -0.5f , 1);
+			background.transform.position = new Vector3(mapData.width / 2 - 0.5f, mapData.height/2 -0.5f , 3);
 			background.transform.Scale(new Vector3(mapData.width, mapData.height, 1));
 		}
 	}
