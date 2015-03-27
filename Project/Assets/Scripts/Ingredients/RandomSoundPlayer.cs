@@ -11,8 +11,12 @@ public class RandomSoundPlayer : MonoBehaviour {
 	}
 	
 	void PlaySound () {
+		PlaySound(1f);
+	}
+	
+	void PlaySound (float soundScale) {
 		int i = Random.Range (0, sounds.Length);
-		source.PlayOneShot(sounds[i], 1f);
+		source.PlayOneShot(sounds[i], soundScale);
 	}
 	
 }
