@@ -63,8 +63,11 @@ public class GameManager : StateLayer {
 		}
 		
 		currentLevelIndex++;
+		int maxLevel = PlayerPrefs.GetInt("MAX_LEVEL",1);
+		if(maxLevel < currentLevelIndex){
+			PlayerPrefs.SetInt("MAX_LEVEL",currentLevelIndex);
+		}
 		
-		PlayerPrefs.SetInt("MAX_LEVEL",currentLevelIndex);
 		
 		if(currentLevelIndex == currentLevelPack.Length){
 			endGame();

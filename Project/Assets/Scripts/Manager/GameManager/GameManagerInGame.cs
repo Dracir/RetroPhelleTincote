@@ -10,7 +10,7 @@ public class GameManagerInGame : State {
     }
 	
 	public override void OnUpdate(){
-		if(Input.GetKeyDown(KeyCode.KeypadEnter)){
+		if(Input.GetKeyDown(KeyCode.F1)){
 			Layer.nextLevel();
 		}
 	}
