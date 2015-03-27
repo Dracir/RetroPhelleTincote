@@ -13,7 +13,7 @@ public class GameManager : StateLayer {
 	[Disable] public GameObject player1;
 	[Disable] public GameObject player2;
 	
-	public string endGameSceneName;
+	public string endGameSceneName = "MainMenu";
 	
 	[Disable] public GameObject[] currentLevelPack;
 	[Disable] public int currentLevelIndex = -1;
@@ -30,11 +30,17 @@ public class GameManager : StateLayer {
 		}
 	}
 	
-	public void switchToLevelPack(string levelPackAssetFolder) {
+	public void switchToLevelPack(string levelPackAssetFolder, int startingLevel = 0) {
+		if(Application.loadedLevelName != "InGame"){
+			Application.LoadLevel("InGame");
+			Debug.Log("BOB");
+		}
+		
 		currentLevelPack = Resources.LoadAll<GameObject>(levelPackAssetFolder);
-		currentLevelIndex = -1;
+		currentLevelIndex = startingLevel - 1;
 		nextLevel();
 	}
+
 	
 	
 	public void nextLevel(){
@@ -106,7 +112,7 @@ public class GameManager : StateLayer {
 	}
 
 	void centerCamera() {
-		Camera.main.gameObject.transform.position = new Vector3(mapData.width / 2, mapData.height/2, -10);
+		Camera.main.gameObject.transform.position = new Vector3(mapData.width / 2 - 0.5f, mapData.height/2 -0.5f , -10);
 		Camera.main.orthographicSize = mapData.height/2;
 	}
 	
