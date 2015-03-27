@@ -16,7 +16,7 @@ namespace FMG
 		}
 		public static int getMaxLevel()
 		{
-			return PlayerPrefs.GetInt("MAX_LEVEL",1);
+			return PlayerPrefs.GetInt("MAX_LEVEL",1) + 1;
 		}
 		public static void setMaxLevel(int val)
 		{

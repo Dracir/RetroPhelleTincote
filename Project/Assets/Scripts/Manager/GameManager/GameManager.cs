@@ -14,6 +14,7 @@ public class GameManager : StateLayer {
 	[Disable] public GameObject player2;
 	
 	public string endGameSceneName = "MainMenu";
+	public string gameSceneName = "InGame";
 	
 	[Disable] public GameObject[] currentLevelPack;
 	[Disable] public int currentLevelIndex = -1;
@@ -38,14 +39,15 @@ public class GameManager : StateLayer {
 		}
 	}
 	
-	public void switchToLevelPack(string levelPackAssetFolder, int startingLevel = 0) {
+	public void switchToLevelPack(string levelPackAssetFolder, int startingLevel = 1) {
 		currentLevelPack = Resources.LoadAll<GameObject>(levelPackAssetFolder);
-		currentLevelIndex = startingLevel - 1;
+		currentLevelIndex = startingLevel - 2;
 		
 		
-		if(Application.loadedLevelName != "InGame"){
+		if(Application.loadedLevelName != gameSceneName){
 			nextLevelOnLevelWasLoaded = true;
-			Application.LoadLevel("InGame");
+			Debug.Log("Switching to " + gameSceneName);
+			Application.LoadLevel(gameSceneName);
 		}else{
 			nextLevel();
 		}
