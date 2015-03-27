@@ -21,6 +21,14 @@ public class GameManager : StateLayer {
 	[Disable] public GameObject levelGO;
 	[Disable] public MapData mapData;
 	
+	bool nextLevelOnLevelWasLoaded = false;
+    void OnLevelWasLoaded(int iLevel){
+		if(nextLevelOnLevelWasLoaded){
+			nextLevel();
+			nextLevelOnLevelWasLoaded = false;
+		}
+    }
+	
 	void Awake(){
 		if(instance != null && instance != this){
 			Object.Destroy(gameObject);
@@ -31,20 +39,16 @@ public class GameManager : StateLayer {
 	}
 	
 	public void switchToLevelPack(string levelPackAssetFolder, int startingLevel = 0) {
-		if(Application.loadedLevelName != "InGame"){
-			LoadGame("InGame");
-			Debug.Log("BOB");
-		}
-		
 		currentLevelPack = Resources.LoadAll<GameObject>(levelPackAssetFolder);
 		currentLevelIndex = startingLevel - 1;
-		nextLevel();
-	}
-
-	IEnumerator LoadGame(string strLevel){
-		Debug.Log("Loading Level");
-		yield return Application.LoadLevelAsync(strLevel);
-		Debug.Log("Level Load complete");
+		
+		
+		if(Application.loadedLevelName != "InGame"){
+			nextLevelOnLevelWasLoaded = true;
+			Application.LoadLevel("InGame");
+		}else{
+			nextLevel();
+		}
 	}
 	
 	public void nextLevel(){
