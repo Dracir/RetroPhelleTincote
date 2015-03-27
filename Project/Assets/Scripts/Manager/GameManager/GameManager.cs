@@ -10,6 +10,8 @@ public class GameManager : StateLayer {
 	public GameObject player1prefab;
 	public GameObject player2prefab;
 	
+	public GameObject background;
+	
 	[Disable] public GameObject player1;
 	[Disable] public GameObject player2;
 	
@@ -94,6 +96,11 @@ public class GameManager : StateLayer {
 		
 		relocatePlayersToStart();
 		centerCamera();
+		
+		if(background != null){
+			background.transform.position = new Vector3(mapData.width / 2 - 0.5f, mapData.height/2 -0.5f , 1);
+			background.transform.Scale(new Vector3(mapData.width, mapData.height, 1));
+		}
 	}
 
 	public void relocatePlayersToStart() {
