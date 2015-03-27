@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: a58165df624eb1c4cb4bcec6beaf49f6
-timeCreated: 1427333201
+timeCreated: 1427420400
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - layer: {instanceID: 0}
+  - machine: {instanceID: 0}
+  - debut: {fileID: 8300000, guid: 5f7804a6448d38b4eb3a18bc79333e6e, type: 3}
+  - boucle: {fileID: 8300000, guid: 1685e94a44153184dae75d966ee3ad4f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

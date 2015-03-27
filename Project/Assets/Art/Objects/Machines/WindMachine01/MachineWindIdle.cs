@@ -15,6 +15,7 @@ public class MachineWindIdle : State {
 		Layer.particleFX.Stop();
 		Layer.oscillate.enabled = false;
 		Layer.areaEffector.enabled = false;
+		GetComponent<AudioSource>().Stop();
 	}
 	
 	public override void OnExit() {

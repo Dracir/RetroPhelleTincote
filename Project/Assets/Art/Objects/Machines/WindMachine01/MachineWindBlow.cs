@@ -12,18 +12,6 @@ public class MachineWindBlow : State {
 	public AudioClip boucle;
 	AudioSource source;
 	
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (!source.isPlaying){
-			source.loop = true;
-			source.clip = boucle;
-			source.Play();
-		}
-	}
 	public override void OnEnter() {
 		base.OnEnter();
 		
@@ -50,6 +38,11 @@ public class MachineWindBlow : State {
 		if (transform.hasChanged) {
 			UpdateRotation();
 			transform.hasChanged = false;
+		}
+		if (!source.isPlaying){
+			source.loop = true;
+			source.clip = boucle;
+			source.Play();
 		}
 	}
 	
