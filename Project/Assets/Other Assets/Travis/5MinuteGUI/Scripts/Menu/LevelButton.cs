@@ -7,7 +7,7 @@ namespace FMG
 
 		public void onClick()
 		{
-			Application.LoadLevel(levelIndex);
+			GameManager.instance.switchToLevelPack("Maps/Game", levelIndex - 1);
 		}
 	}
 }

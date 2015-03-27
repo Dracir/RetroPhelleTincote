@@ -32,7 +32,7 @@ public class GameManager : StateLayer {
 	
 	public void switchToLevelPack(string levelPackAssetFolder, int startingLevel = 0) {
 		if(Application.loadedLevelName != "InGame"){
-			Application.LoadLevel("InGame");
+			LoadGame("InGame");
 			Debug.Log("BOB");
 		}
 		
@@ -41,7 +41,11 @@ public class GameManager : StateLayer {
 		nextLevel();
 	}
 
-	
+	IEnumerator LoadGame(string strLevel){
+		Debug.Log("Loading Level");
+		yield return Application.LoadLevelAsync(strLevel);
+		Debug.Log("Level Load complete");
+	}
 	
 	public void nextLevel(){
 		if(currentLevelPack.Length == 0) return;
@@ -51,6 +55,9 @@ public class GameManager : StateLayer {
 		}
 		
 		currentLevelIndex++;
+		
+		PlayerPrefs.SetInt("MAX_LEVEL",currentLevelIndex);
+		
 		if(currentLevelIndex == currentLevelPack.Length){
 			endGame();
 		}else{
@@ -71,7 +78,7 @@ public class GameManager : StateLayer {
 	}
 	
 	void loadLevel(GameObject level) {
-		SwitchState<GameManagerPause>();
+		SwitchState<GameManagerInGame>();
 		if(levelGO != null){
 			Object.Destroy(levelGO);
 		}

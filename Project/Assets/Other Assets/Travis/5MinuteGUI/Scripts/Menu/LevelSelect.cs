@@ -12,6 +12,8 @@ namespace FMG
 		public int nomPerCol = 3;
 		public int levelIndex = 0;
 		private int m_nomPages = 0;
+		
+		private int nombreTotalDeNiveau;
 
 		private GameObject[] m_pages;
 
@@ -23,7 +25,10 @@ namespace FMG
 		void Awake () {
 
 			int cellsPerPage = nomPerCol * nomPerRow;
-			int tmpNomLevels = Application.levelCount-1-Application.loadedLevel;
+			
+			GameObject[] levels = Resources.LoadAll<GameObject>("Maps/Game");
+			nombreTotalDeNiveau = levels.Length;
+			int tmpNomLevels = nombreTotalDeNiveau;
 
 			while(tmpNomLevels > 0)
 			{
@@ -109,10 +114,10 @@ namespace FMG
 				pos.x = startPos.x;
 				for(int j=0; j<nomPerCol; j++)
 				{
-					if(n<Application.levelCount-Application.loadedLevel)
+					if(n<nombreTotalDeNiveau + 1 )
 					{
 						GameObject newObject = (GameObject)Instantiate(levelButton,Vector3.zero,Quaternion.identity);
-						newObject.transform.parent = newPage.transform;
+						newObject.transform.SetParent(newPage.transform);
 
 						Button button = newObject.GetComponent<Button>();
 						
