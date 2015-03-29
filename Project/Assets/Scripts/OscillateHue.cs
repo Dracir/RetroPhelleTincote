@@ -29,7 +29,6 @@ public class OscillateHue : MonoBehaviourExtended {
 		Color hsv = material.color.ToHSV();
 		hsv.r = center + amplitude * Mathf.Sin(frequency * Time.time);
 		material.color = hsv.ToRGB();
-		Logger.Log(hsv.ToRGB(), hsv);
 	}
 }
 
