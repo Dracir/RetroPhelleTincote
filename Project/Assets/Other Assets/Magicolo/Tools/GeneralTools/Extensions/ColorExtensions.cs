@@ -87,7 +87,7 @@ namespace Magicolo {
 		public static float Average(this Color color) {
 			return color.Average(Channels.RGBA);
 		}
-	
+
 		public static Color ToHSV(this Color RGBColor) {
 			float R = RGBColor.r;
 			float G = RGBColor.g;
@@ -100,38 +100,38 @@ namespace Magicolo {
 		
 			float minRGB = Mathf.Min(R, Mathf.Min(G, B));
 			float maxRGB = Mathf.Max(R, Mathf.Max(G, B));
-	
-			if (minRGB == maxRGB) {
-				return new Color(0, 0, minRGB, RGBColor.a);
-			}
-
-			if (R == minRGB) {
-				d = G - B;
-			}
-			else if (B == minRGB) {
-				d = R - G;
-			}
-			else {
+		
+//			if (minRGB == maxRGB) {
+//				return new Color(0, 0, minRGB, RGBColor.a);
+//			}
+//		
+//			if (R == minRGB) {
+//				d = G - B;
+//			}
+//			else if (B == minRGB) {
+//				d = R - G;
+//			}
+//			else {
 				d = B - R;
-			}
-			
-			if (R == minRGB) {
-				h = 3;
-			}
-			else if (B == minRGB) {
-				h = 1;
-			}
-			else {
+//			}
+		
+//			if (R == minRGB) {
+//				h = 3;
+//			}
+//			else if (B == minRGB) {
+//				h = 1;
+//			}
+//			else {
 				h = 5;
-			}
-			
+//			}
+		
 			H = (60 * (h - d / (maxRGB - minRGB))) / 360;
 			S = (maxRGB - minRGB) / maxRGB;
 			V = maxRGB;
 		
 			return new Color(H, S, V, RGBColor.a);
 		}
-	
+		
 		public static Color ToRGB(this Color HSVColor) {
 			float H = HSVColor.r;
 			float S = HSVColor.g;
