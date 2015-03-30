@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 namespace RickTools.MapLoader{
@@ -18,8 +17,10 @@ namespace RickTools.MapLoader{
 		}
 		
 		void makeGameObjectAsPrefab(GameObject gameObject, string name){
-			PrefabUtility.CreatePrefab(prefabRoot + "/" + name + ".prefab", gameObject);
+			#if UNITY_EDITOR
+			UnityEditor.PrefabUtility.CreatePrefab(prefabRoot + "/" + name + ".prefab", gameObject);
 			Object.DestroyImmediate(gameObject);
+			#endif
 		}
 		
 	}

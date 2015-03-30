@@ -9,6 +9,8 @@ public class OscillateHue : MonoBehaviourExtended {
 	public float amplitude = 360;
 	public float center = 180;
 	
+	[Disable] public Color hsv;
+	
 	bool _spriteRendererCached;
 	SpriteRenderer _spriteRenderer;
 	public SpriteRenderer spriteRenderer { 
@@ -25,16 +27,12 @@ public class OscillateHue : MonoBehaviourExtended {
 		}
 	}
 	
+	void Awake(){
+		hsv = material.color.ToHSV();
+	}
+	
 	void Update() {
-//		Color hsv = material.color.ToHSV();
-//		hsv.r = center + amplitude * Mathf.Sin(frequency * Time.time);
-//		material.color = hsv.ToRGB();
-		
-		Color hsv = material.color.ToHSV();
-		hsv.r += frequency;
-		if (hsv.r > 1){
-			hsv.r -= 1;
-		}
+		hsv.r = center + amplitude * Mathf.Sin(frequency * Time.time);
 		material.color = hsv.ToRGB();
 	}
 }
